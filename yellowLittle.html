@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    body{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		@font-face{
+			font-family: Wingdings;
+		}
+		.wholebox{
+			width: 250px;
+			height: 420px;
+			padding: 2px;
+			position: relative;
+			top: -170px;
+			left: -76px;
+			transform-style: preserve-3d;
+			perspective: 800px;
+			perspective-origin: center center;
+			transform-origin: center center;
+			transform: rotatey(20deg) scale3d(0.4,0.4,0.4);
+			animation-name: wholezerotohundrad;
+			animation-duration: 30s;
+			animation-timing-function: linear;
+			animation-iteration-count: 1;
+		}
+		.wholebox:hover{
+			animation-play-state: paused;
+		}
+		@keyframes wholemove{
+			0%{transform: rotatez(0deg);}
+			25%{transform: rotatez(10deg);}
+			75%{transform: rotatez(-10deg);}
+			100%{transform: rotatez(0deg);}
+		}
+		@keyframes wholezerotohundrad{
+			0%{left: -76px;top: -170px;}
+			100%{left: 500px;top: 150px;}
+		}
+		@keyframes wholescale{
+			0%{transform: scale3d(0.4,0.4,0.4);}
+			100%{transform: scale3d(2,2,2);}
+		}
+		.wholeall{
+			position: relative;
+			left: 0px;
+			top: 0px;
+			animation-name: wholemove;
+			animation-duration: 1s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+		}	
+		.whole{
+			transform: scale3d(0.4,0.4,0.4);
+			animation-name: wholescale;
+			animation-duration: 30s;
+			animation-timing-function: linear;
+			animation-iteration-count: 1;
+		}
+		.wholeall:hover,
+		.whole:hover,
+		.whole:hover .foot .left-leg,
+		.whole:hover .foot .right-leg{
+			animation-play-state: paused;
+		}
+		.hair{
+			display: flex;
+			justify-content: center;
+		}
+		.hair .left-hair,
+		.hair .right-hair{
+			width: 100px;
+			height: 30px;
+			position: relative;
+		}
+		.hair .left-hair div:nth-child(1){
+			width: 60px;
+			height: 20px;
+			border: 5px solid black;
+			position: absolute;
+			right: 12px;
+			bottom: -16px;
+    		border-radius: 24px 35px 0px 0px;
+			border-left: none;
+			border-bottom: none;
+			z-index: -1;
+		}
+		.hair .left-hair div:nth-child(2){
+		    width: 80px;
+		    height: 40px;
+		    border: 5px solid black;
+		    position: absolute;
+		    right: 0px;
+		    bottom: -28px;
+		    border-radius: 16px 42px 0px 0px;
+		    border-left: none;
+		    border-bottom: none;
+		    z-index: -1;
+		}
+		.hair .right-hair div:nth-child(1){
+		    width: 60px;
+		    height: 20px;
+		    border: 5px solid black;
+		    position: absolute;
+		    left: 1px;
+		    bottom: -14px;
+		    border-radius: 43px 24px 0px 0px;
+		    border-right: none;
+		    border-bottom: none;
+		    z-index: -1;
+		}
+		.hair .right-hair div:nth-child(2){
+		    width: 73px;
+		    height: 20px;
+		    border: 5px solid black;
+		    position: absolute;
+		    left: -5px;
+		    bottom: -6px;
+		    border-radius: 43px 39px 0px 0px;
+		    border-right: none;
+		    border-bottom: none;
+		    z-index: -1;
+		}
+		.body{
+			border: 5px solid black;
+			height: 300px;
+			padding: 40px 0;
+			border-radius: 100px 100px 70px 70px;
+			background: yellow;     
+		}
+		.glasses{
+			display: flex;
+			align-content: center;
+			align-items: center;
+		}
+		.glasses  .glasses-leftside,
+		.glasses  .glasses-rightside{
+			width: 50px;
+			height: 10px;
+			border: 5px solid black;
+			border-left: none;
+			border-right: none;
+		}
+		.glasses .glasses-left,
+		.glasses .glasses-right{
+			width: 80px;
+			height: 80px;
+			border: 5px solid black;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.glasses .glasses-left .eye-left,
+		.glasses .glasses-right .eye-right{
+			width: 30px;
+			height: 30px;
+			border: 5px solid black;
+			border-radius: 50%;
+			background: black;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			transform-origin: center center;
+			transform: rotate(0deg);
+			transition: transform 4s;
+		}
+		.whole:hover .glasses .glasses-left .eye-left,
+		.whole:hover .glasses .glasses-right .eye-right{
+			transform: rotate(360deg);
+		}
+		.glasses .glasses-left .eye-left .leftwhiteEye,
+		.glasses .glasses-right .eye-right .rightwhiteEye{
+			width: 15px;
+			height: 15px;
+			background: white;
+			border-radius: 50%;
+		}
+		.mouse{
+			padding: 30px 30px 0;
+			display: flex;
+			justify-content: center;
+			position: relative;
+		}
+		.mouseIn{
+			width: 60px;
+			height: 23px;
+			margin-left: 20px;
+			border: 5px solid black;
+			border-radius: 10px 10px 55px 55px;
+			transform-origin: right top;
+			transform: rotate(-13deg);
+		}
+		.mouse .speak1,
+		.mouse .speak2{
+			position: absolute;
+			font-size: 20px;
+			left: -130px;
+			top: -30px;
+			background: linear-gradient(30deg, red, orange, yellow, green, aqua, blue, purple, red);
+			background-size: 100px 100px;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-align: center;
+		}
+		.mouse .speak2{
+			left: -100px;
+			top: -30px;
+			display: none;
+		}
+		.whole:hover .mouse .speak1{
+			display: none;
+		}
+		.whole:hover .mouse .speak2{
+			display: block;
+		}
+		.arm{
+			position: relative;
+		}
+		.arm .arm-left{
+			position: relative;
+		}
+		.arm .arm-left .arm-left-out{
+			position: absolute;
+			left: -57px;
+			top: -5px;
+			width: 50px;
+			height: 60px;
+			border: 8px solid black;
+			border-radius: 0px 0px 20px 8px;
+			border-left: none;
+			border-top: none;
+			transform-origin: right top;
+			transform: rotate(20deg);
+		}
+		.arm .arm-left .arm-left-out .left-hand1,
+		.arm .arm-left .arm-left-out .left-hand2{
+			font-family: Wingdings;
+			font-size: 66px;
+			font-weight: 900;
+			position: absolute;
+			left: -10px;
+			top: 2px;
+			transform-origin: bottom center;
+			transform: rotate(-17deg);
+		}
+		.arm .arm-left .arm-left-out .left-hand2{
+			display: none;
+		}
+		.whole:hover .arm .arm-left .arm-left-out .left-hand1{
+			display: none;
+		}
+		.whole:hover .arm .arm-left .arm-left-out .left-hand2{
+			display: block;
+		}
+		.arm-right{
+			width: 40px;
+			height: 40px;
+			border: 8px solid black;
+			position: absolute;
+			right: -35px;
+			border-radius: 0px 30px 30px 0px;
+			z-index: -1;
+		}
+		.pants-side{
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+			z-index: 1000;
+		}
+		.pants-side .pants-leftside,
+		.pants-side .pants-rightside{
+			width: 60px;
+			height: 10px;
+			border: 4px solid black;
+			background: blue;
+		}
+		.pants-side .pants-leftside{
+			border-left: none;
+			transform-origin: left center;
+			transform: skewy(20deg);
+		}
+		.pants-side .pants-rightside{
+			border-right: none;
+			transform-origin: right center;
+			transform: skewy(-20deg);
+		}
+		.pants{
+			position: relative;
+			z-index: 3;
+		}
+		.pants .pants-top{
+			width: 180px;
+			height: 50px;
+			border: 5px solid black;
+			border-bottom: none;
+			margin: 0 auto;
+			background: blue;
+		}
+		.pants .pants-bottom{
+			height: 112px;
+			border-top: 5px solid black;
+			border-radius: 10px 10px 63px 63px;
+			background: blue;
+		}
+		.foot{
+			height: 80px;
+			display: flex;
+			justify-content: space-between;
+			padding: 0 40px;
+		}
+		.foot .left-leg,
+		.foot .right-leg{
+			width: 80px;
+			height: 70px;
+			position: relative;
+			top: -5px;
+		}
+		@keyframes leftfootmove{
+			0%{transform: rotatez(0deg);}
+			25%{transform: rotatez(20deg);}
+			50%{transform: rotatez(0deg);}
+			100%{transform: rotatez(0deg);}
+		}
+		@keyframes rightfootmove{
+			0%{transform: rotatez(0deg);}
+			50%{transform: rotatez(0deg);}
+			75%{transform: rotatez(-20deg);}
+			100%{transform: rotatez(0deg);}
+		}
+		.foot .left-leg{
+			transform-origin: right top;
+			animation-name: leftfootmove;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+		.foot .right-leg{
+			transform-origin: left top;
+			animation-name: rightfootmove;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+		}
+		.foot .left-leg .left-leg-top{
+			width: 20px;
+			height: 55px;
+			border: 5px solid black;
+			border-top: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: black;
+		}
+		.foot .left-leg .left-leg-bottom{
+			width: 30px;
+			height: 20px;
+			border: 5px solid black;
+			border-right: none;
+			position: absolute;
+			right: 25px;
+			bottom: 10px;
+			border-radius: 26px 0px 0px 0px;
+			background: black;
+		}
+		.foot .right-leg .right-leg-top{
+			width: 20px;
+			height: 55px;
+			border: 5px solid black;
+			border-top: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: black;
+		}
+		.foot .right-leg .right-leg-bottom{
+			width: 30px;
+			height: 20px;
+			border: 5px solid black;
+			border-left: none;
+			position: absolute;
+			left: 25px;
+			bottom: 10px;
+			border-radius: 0px 26px  0px 0px;
+			background: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="wholebox">
+		<div class="wholeall">
+			<div class="whole">
+				<!-- 头发 -->
+				<div class="hair">
+					<div class="left-hair">
+						<div class="lefthair1"></div>
+						<div class="lefthair2"></div>
+					</div>
+					<div class="right-hair">
+						<div class="righthair1"></div>
+						<div class="righthair2"></div>
+					</div>
+				</div>
+				<!-- 身体部位 -->
+				<div class="body">
+					<!-- 眼镜部分 -->
+					<div class="glasses">
+						<!-- 左眼镜框 -->
+						<div class="glasses-leftside"></div>
+						<!-- 左边眼镜 -->
+						<div class="glasses-left">
+							<div class="eye-left">
+								<div class="leftwhiteEye"></div>
+							</div>
+						</div>
+						<!-- 右边眼镜 -->
+						<div class="glasses-right">
+							<div class="eye-right">
+								<div class="rightwhiteEye"></div>
+							</div>
+						</div>
+						<!-- 右边眼镜框 -->
+						<div class="glasses-rightside"></div>
+					</div>
+					<!-- 嘴巴部分 -->
+					<div class="mouse">
+						<div class="mouseIn"></div>
+						<div class="speak1">抓住我呀，<br>啦啦啦~~~</div>
+						<div class="speak2">啊哦，<br>好气哦~</div>
+					</div>
+					<!-- 胳膊部分 -->
+					<div class="arm">
+						<div class="arm-left">
+							<div class="arm-left-out">
+								<div class="left-hand1">&#65;</div>
+								<div class="left-hand2">&#71;</div>
+							</div>
+						</div>
+						<div class="arm-right"></div>
+					</div>
+					<!-- 背带裤肩带部分 -->
+					<div class="pants-side">
+						<div class="pants-leftside"></div>
+						<div class="pants-rightside"></div>
+					</div>
+					<!-- 背带裤部分 -->
+					<div class="pants">
+						<div class="pants-top"></div>
+						<div class="pants-bottom"></div>
+					</div>
+				</div>
+				<div class="foot">
+					<div class="left-leg">
+						<div class="left-leg-top"></div>
+						<div class="left-leg-bottom"></div>
+					</div>
+					<div class="right-leg">
+						<div class="right-leg-top"></div>
+						<div class="right-leg-bottom"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
